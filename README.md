@@ -1,5 +1,5 @@
 **How to set up**
-1. Run the uv sync command to initialize the UV environment.
+1. Run the 'uv sync' command to initialize the UV environment.
    ```
    uv sync
    ```
