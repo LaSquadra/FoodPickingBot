@@ -2,11 +2,8 @@ from langchain_core.messages import convert_to_messages
 from langgraph.prebuilt import create_react_agent
 from langgraph_supervisor import create_supervisor
 from langchain.chat_models import init_chat_model
-# from langchain_tavily import TavilySearch
 from dotenv import load_dotenv
 from tools_module import search_tool, say_hello
-
-# from IPython.display import display, Image
 
 load_dotenv()
 
@@ -123,7 +120,7 @@ def main():
 
 
 if __name__ == "__main__":
-    # Uncomment this to save/create the visual graph
-    with open("graph.png", "wb") as f:
-        f.write(supervisor.get_graph().draw_mermaid_png())
-    # main()
+    # # Uncomment this to save/create the visual graph
+    # with open("graph.png", "wb") as f:
+    #     f.write(supervisor.get_graph().draw_mermaid_png())
+    main()
