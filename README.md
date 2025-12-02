@@ -1,4 +1,5 @@
 **How to set up**
+
 NOTE:  This project uses UV (an alternative to pip) --> https://docs.astral.sh/uv/getting-started/installation/
 1. Run the 'uv sync' command to initialize the UV environment.
    ```
