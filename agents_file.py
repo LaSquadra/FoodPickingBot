@@ -44,7 +44,7 @@ restaurant_agent = create_react_agent(
 
 supervisor = create_supervisor(
     model=init_chat_model("openai:gpt-4.1"),
-    agents=[research_agent, restaurant_agent], # , math_agent
+    agents=[research_agent, restaurant_agent],
     tools=[say_hello],
     prompt=(
         "You are a supervisor managing two agents:\n"
