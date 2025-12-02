@@ -18,8 +18,9 @@ research_agent = create_react_agent(
     prompt=(
         "You are a research agent.\n\n"
         "INSTRUCTIONS:\n"
-        "- Assist ONLY with research-related tasks, DO NOT do any math\n"
-        "- After you're done with your tasks, respond to the supervisor directly\n"
+        "- Assist ONLY with research-related tasks, DO NOT do any math.\n"
+        "- After you're done with your tasks, respond to the supervisor directly.\n"
+        "- You must always include links to your sources when available.\n"
         "- Respond ONLY with the results of your work, do NOT include ANY other text."
     ),
     name="research_agent",
@@ -33,36 +34,22 @@ restaurant_agent = create_react_agent(
         "You are responsible for providing information about restaurants and dining options.\n"
         "Please look at the user's query for context.\n\n"
         "INSTRUCTIONS:\n"
-        "- Assist ONLY with restaurant-related tasks, DO NOT do any math\n"
+        "- Assist ONLY with restaurant-related tasks, DO NOT engage with anyting that is beyond the scope of finding food in the erea specified by the user.\n"
         "- After you're done with your tasks, respond to the supervisor directly\n"
+        "- Provide a link to the restaurant's homepage where possible"
         "- Respond ONLY with the results of your work, do NOT include ANY other text."
     ),
     name="restaurant_agent",
 )
-
-# math_agent = create_react_agent(
-#     model="openai:gpt-4.1",
-#     tools=[calculator],
-#     prompt=(
-#         "You are a math agent.\n\n"
-#         "INSTRUCTIONS:\n"
-#         "- Assist ONLY with math-related tasks\n"
-#         "- After you're done with your tasks, respond to the supervisor directly\n"
-#         "- Respond ONLY with the results of your work, do NOT include ANY other text."
-#     ),
-#     name="math_agent",
-# )
-
 
 supervisor = create_supervisor(
     model=init_chat_model("openai:gpt-4.1"),
     agents=[research_agent, restaurant_agent], # , math_agent
     tools=[say_hello],
     prompt=(
-        "You are a supervisor managing three agents:\n"
+        "You are a supervisor managing two agents:\n"
         "- a research agent. Assign research-related tasks to this agent\n"
         "- a restaurant agent. Assign restaurant-related tasks and queries to this agent\n"
-        "- a math agent. Assign math-related tasks to this agent\n"
         "Assign work to one agent at a time, do not call agents in parallel.\n"
         "Do not do any work yourself."
     ),
