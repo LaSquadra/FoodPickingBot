@@ -123,7 +123,7 @@ def main():
 
 
 if __name__ == "__main__":
-    # # Uncomment this to save/create the visual graph
-    # with open("graph.png", "wb") as f:
-    #     f.write(supervisor.get_graph().draw_mermaid_png())
-    main()
+    # Uncomment this to save/create the visual graph
+    with open("graph.png", "wb") as f:
+        f.write(supervisor.get_graph().draw_mermaid_png())
+    # main()
